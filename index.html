@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body onselectstart="return false">
+    <button id="addDom">添加div</button>
+    <div id="dragPDom">
+        <div class="sonDom" style="top:20px;left:50px;">
+            <div class="toptitle">111111</div>
+            <div class="otherbox"></div>
+        </div>
+        <div class="sonDom" style="top:50px;left:200px;background-color:#f00;">
+            <div class="toptitle">22222</div>
+        </div>
+        <div class="sonDom" style="top:80px;left:600px;background-color:green;">
+            <div class="toptitle">333333</div>
+        </div>
+        <div class="sonDom" style="top:120px;left:800px;background-color:orange;">
+            <div class="toptitle">44444</div>
+        </div>
+        <div class="sonDom" style="top:140px;left:400px;background-color:pink;">
+            <div class="toptitle">555555</div>
+        </div>
+    </div>
+
+
+
+
+    <script src="./dragMan.js"></script>
+    <script>
+        var drags = new DragMan();
+        drags.init('#dragPDom','')
+    </script>
+
+
+<script>
+    var addDom = document.getElementById('addDom');
+    var contentDom = document.getElementById('dragPDom');
+    addDom.onclick = function(){
+        var adds = document.createElement('div');
+        var addsContent = document.createElement('div');
+        addsContent.setAttribute('class','toptitle');
+        addsContent.innderHTML = '增加的dom';
+        adds.appendChild(addsContent);
+        adds.setAttribute('class','sonDom');
+        adds.setAttribute('style','position:absolute;top:80px;left:300px;')
+        contentDom.appendChild(adds);
+    }
+    
+</script>
+</body>
+</html>
